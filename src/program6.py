@@ -1,7 +1,7 @@
 total = 0
 values = 0
 
-list = []
+myList = []
 with open('sum.txt', 'r') as inp:
     # to take in malformatted Values (remove try/except block)
 
@@ -15,14 +15,15 @@ with open('sum.txt', 'r') as inp:
                num = float(line)
                total += num
                values += 1
-               list.append(num)
+               myList.append(num)
            except ValueError:
                i = 1
 
-list.sort()
-reversed = list.reverse()
+myList.sort()
+list2 = list.copy(myList)
+# reversed = myList.reverse()
 
-print(reversed)
+# print(reversed)
 print('# Values   : ' + str(values))
 if (values == 0):
     print('All values are 0')
@@ -33,8 +34,8 @@ else:
 
     print('Comp Total : ' + str(total))
     print('Avgerage   : ' + str(total/values))
-    print('Sorted asc : ' + str(list))
+    print('Sorted asc : ' + str(myList))
 
-    # reverse the list
-    list.reverse()
-    print('Sorted desc: ' + str(list))
+    # reverse the myList
+    list2.reverse()
+    print('Sorted desc: ' + str(list2))
